@@ -28,6 +28,16 @@ def self.create_by_name(title)
   song
 end
 
+def self.new_from_filename(filename)
+  song_array = filename.split(" - ")
+  song_array[1] = song_array[1].chomp(".mp3")
+  song = self.new
+  song.name = song_array[1]
+  song.artist_name = song_array[0]
+  song
+end
+
+
 def self.alphabetical
   sorted = self.all.sort_by {|song| song.name}
   sorted
@@ -53,5 +63,10 @@ def self.create_from_filename(filename)
   song.artist_name = result.artist_name
   song
 end
+
+def self.destroy_all
+  self.all.clear
+end
+
 
 end
