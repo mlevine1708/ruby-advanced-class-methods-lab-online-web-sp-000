@@ -55,6 +55,7 @@ def self.find_or_create_by_name(title)
   else
     self.create_by_name(title)
   end
+end
 
 def self.create_from_filename(filename)
   result = self.new_from_filename(filename)
@@ -68,5 +69,5 @@ def self.destroy_all
   self.all.clear
 end
 
-end 
+end
 end
